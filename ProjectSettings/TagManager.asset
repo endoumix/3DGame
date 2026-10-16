@@ -11,11 +11,11 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Player
+  - Robots
+  - Bumpers
+  - KillZone
+  - Ground
   - 
   - 
   - 
