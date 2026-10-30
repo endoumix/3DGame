@@ -7,7 +7,8 @@ public class PauseManager : MonoBehaviour
     public static PauseManager Instance { get; private set; }
 
     [SerializeField] private GameObject pausePanel;
-    public bool IsPaused { get; private set; } = false;
+    public bool IsPaused { get; private set; } = false; // стоит ли игра на паузе
+
 
     private void Awake()
     {
@@ -29,7 +30,7 @@ public class PauseManager : MonoBehaviour
 
     private void Update()
     {
-        // Escape — открыть/закрыть паузу
+        
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             TogglePause();
@@ -38,11 +39,11 @@ public class PauseManager : MonoBehaviour
 
     public void TogglePause()
     {
-        IsPaused = !IsPaused;
+        IsPaused = !IsPaused; // переключаем состояние паузы
         if (pausePanel != null) pausePanel.SetActive(IsPaused);
 
         Time.timeScale = IsPaused ? 0f : 1f;
-        Cursor.lockState = IsPaused ? CursorLockMode.None : CursorLockMode.Locked;
+        Cursor.lockState = IsPaused ? CursorLockMode.None : CursorLockMode.Locked; // если пауза — показываем курсор и разблок его, иначе блок
         Cursor.visible = IsPaused;
     }
 
@@ -51,7 +52,7 @@ public class PauseManager : MonoBehaviour
     public void BackToMenu()
     {
         Time.timeScale = 1f;
-        SceneManager.LoadScene("Menu");
+        SceneManager.LoadScene("Menu");// снимаем паузу перед загрузкой меню
     }
 
     public void QuitGame()

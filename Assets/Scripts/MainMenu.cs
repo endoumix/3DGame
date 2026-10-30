@@ -1,6 +1,6 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
@@ -9,16 +9,26 @@ public class MainMenu : MonoBehaviour
 
     private void Awake()
     {
+        // призываем кнопки
         if (startButton != null) startButton.onClick.AddListener(OnStartClicked);
         if (exitButton != null) exitButton.onClick.AddListener(OnExitClicked);
     }
 
-    private void OnStartClicked()
+    
+    public void OnStartClicked()
     {
-        SceneManager.LoadScene("Room");
+        if (GameManager.Instance != null)
+        {
+            GameManager.Instance.LoadGame();
+        }
+        else
+        {
+            SceneManager.LoadScene("Room");
+        }
     }
 
-    private void OnExitClicked()
+   
+    public void OnExitClicked()
     {
         Application.Quit();
 #if UNITY_EDITOR
