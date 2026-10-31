@@ -12,6 +12,8 @@ public class SimpleEnemy : MonoBehaviour
 
     public float maxHealth = 100f;
     private float currentHealth; //текущее здоровье врага
+
+
     private Transform player;
     private float nextFireTime = 0f; //задержка между выстрелами
     private NavMeshAgent agent;
@@ -21,7 +23,7 @@ public class SimpleEnemy : MonoBehaviour
     void Start()
     {
         currentHealth = maxHealth;
-        agent = GetComponent<NavMeshAgent>(); // говорим врагу через агент "иди к игроку" 
+        agent = GetComponent<NavMeshAgent>(); // говорим врагу через агент иди к игроку
         GameObject p = GameObject.FindGameObjectWithTag("Player");
         if (p != null) player = p.transform;
     }
@@ -37,7 +39,7 @@ public class SimpleEnemy : MonoBehaviour
         {
             RaycastHit hit;
             Vector3 dir = (player.position - transform.position).normalized;// вычисляем направление от врага к игроку
-            if (Physics.Raycast(transform.position, dir, out hit, 15f))
+            if (Physics.Raycast(transform.position, dir, out hit, 15f)) //невидимый луч из позиции врага в направлении игрока, длиной 15 метров.
             {
                 if (hit.transform.CompareTag("Player"))
                 {
@@ -52,9 +54,9 @@ public class SimpleEnemy : MonoBehaviour
     {
         Vector3 spawnPos = transform.position + Vector3.up * 0.5f; //пулю выше ставлю
         Vector3 direction = (player.position - spawnPos).normalized;// направление от врага к игроку
-        Instantiate(bulletPrefab, spawnPos, Quaternion.LookRotation(direction));
+        Instantiate(bulletPrefab, spawnPos, Quaternion.LookRotation(direction));//поворачиваем пулю чтобы она смотрела в сторону игрока
 
-        
+
         if (shootSound != null)
         {
             shootSound.pitch = Random.Range(0.9f, 1.1f); 

@@ -3122,6 +3122,7 @@ GameObject:
   - component: {fileID: 935460570}
   - component: {fileID: 935460571}
   - component: {fileID: 935460572}
+  - component: {fileID: 935460573}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -3275,8 +3276,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
-  healthBar: {fileID: 1656749335}
-  hitSound: {fileID: 935460572}
+  healthUI: {fileID: 935460573}
 --- !u!82 &935460570
 AudioSource:
   m_ObjectHideFlags: 0
@@ -3565,6 +3565,20 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &935460573
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 935460561}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11d81f5a3d2c926469a3193a3823b65a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthBar: {fileID: 1656749335}
+  hitSound: {fileID: 0}
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0

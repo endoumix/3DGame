@@ -7,10 +7,10 @@ public class SimpleSpawner : MonoBehaviour
     public float spawnDelay = 8f;
     public int maxEnemies = 1;
 
-    // точки, где могут появляться враги 
+    
     public Vector3[] spawnPoints;
 
-    private float timer = 0f; //задержка
+    private float timer = 0f; 
 
     void Update()
     {

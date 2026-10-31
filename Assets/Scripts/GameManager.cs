@@ -22,12 +22,12 @@ public class GameManager : MonoBehaviour
 
     void OnEnable()
     {
-        SceneManager.sceneLoaded += OnSceneLoaded;
+        SceneManager.sceneLoaded += OnSceneLoaded;//загрузка сцен
     }
 
     void OnDisable()
     {
-        SceneManager.sceneLoaded -= OnSceneLoaded;
+        SceneManager.sceneLoaded -= OnSceneLoaded;//отписываемся что нет ошибок
     }
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
@@ -44,7 +44,7 @@ public class GameManager : MonoBehaviour
                 Transform win = hud.transform.Find("WinPanel");
                 Transform lose = hud.transform.Find("LosePanel");
 
-                if (win != null) winPanel = win.gameObject;
+                if (win != null) winPanel = win.gameObject;//сохраняем ссылку на панель
                 if (lose != null) losePanel = lose.gameObject;
             }
         }

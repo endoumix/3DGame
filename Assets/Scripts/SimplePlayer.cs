@@ -38,9 +38,9 @@ public class SimplePlayer : MonoBehaviour
         rotationX -= mouseY;// крутим камеру вверх/вниз
         rotationX = Mathf.Clamp(rotationX, -80f, 80f);
         if (cameraTransform != null)
-            cameraTransform.localRotation = Quaternion.Euler(rotationX, 0f, 0f);
+            cameraTransform.localRotation = Quaternion.Euler(rotationX, 0f, 0f);// не наклоняем камеру т.е всё чётенько
 
-        // 
+        
         if (Input.GetButtonDown("Fire1") && Time.time >= nextFireTime)
         {
             nextFireTime = Time.time + fireRate; // задержка 
@@ -57,7 +57,7 @@ public class SimplePlayer : MonoBehaviour
         float moveZ = Input.GetAxis("Vertical");
         Vector3 direction = (transform.right * moveX + transform.forward * moveZ).normalized;
         Vector3 velocity = direction * speed;// скорость движения
-        velocity.y = rb.velocity.y;
+        velocity.y = rb.velocity.y; //чтоб игрок не упал
         rb.velocity = velocity;
 
         // если игрок реально движется 

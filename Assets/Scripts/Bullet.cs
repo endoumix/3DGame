@@ -5,7 +5,7 @@ public class Bullet : MonoBehaviour
     public float speed = 20f;
     public float damage = 35f;
 
-    [Header("„ь€ это пул€?")]
+    [Header("„ь€ пул€?")]
     public bool isEnemyBullet = false;
 
     void Start()
